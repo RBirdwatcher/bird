@@ -14,5 +14,56 @@ Each watcher has 4 components:
   4. **Implementations**: These are actual executable files (SQL, Python etc.) contributed by community members and that pass all the tests. If a new test is added and an implementation no longer passes all the tests, it will need to be refactored in order to be included in the next release version.
 
 
+# Running the tests in Github CodeSpaces
+
+Open  the repository in a codespace by clicking on Code->CodeSpaces-> + in the github page (e.g. https://github.com/RBirdwatcher/bird/tree/main )
+In the 'terminal' on the bottom right just type ./run_tests.sh and press return..you should see pass/fail output like:
+
+@RBirdwatcher ➜ /workspaces/bird (main) $ ./run_tests.sh 
+
+testing primary example
+
+{'fwd_start': 'FALSE', 'start_date': '29/09/21', 'report_date': '01/10/21', 'end_date': '-', 'trade_date': '-', 'description': 'primary example'}
+
+Passed
+
+testing primary example
+
+{'fwd_start': 'FALSE', 'start_date': '01/10/21', 'report_date': '01/10/21', 'end_date': '-', 'trade_date': '-', 'description': 'primary example'}
+
+Passed
+
+testing primary example
+
+{'fwd_start': 'TRUE', 'start_date': '04/10/21', 'report_date': '01/10/21', 'end_date': '-', 'trade_date': '-', 'description': 'primary example'}
+
+Failed
+
+testing no start date (like equities held?)
+
+{'fwd_start': 'FALSE', 'start_date': '-', 'report_date': '01/10/21', 'end_date': '-', 'trade_date': '-', 'description': 'no start date (like equities held?)'}
+
+Passed
+
+testing product ends on same day as it starts
+
+{'fwd_start': 'TRUE', 'start_date': '29/09/21', 'report_date': '01/10/21', 'end_date': '29/09/21', 'trade_date': '-', 'description': 'product ends on same day as it starts'}
+
+Failed
+
+testing products traded before the reporting date but starting after for technical reasons
+
+{'fwd_start': 'FALSE', 'start_date': '03/10/21', 'report_date': '01/10/21', 'end_date': '-', 'trade_date': '01/10/21', 'description': 'products traded before the reporting date but starting after for technical reasons'}
+
+Passed
+
+testing start date is weekend
+
+{'fwd_start': 'FALSE', 'start_date': '02/10/21', 'report_date': '01/10/21', 'end_date': '-', 'trade_date': '01/10/21', 'description': 'start date is weekend'}
+
+Passed
+
+
+
 
 
